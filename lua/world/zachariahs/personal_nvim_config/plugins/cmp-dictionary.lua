@@ -1,7 +1,7 @@
 return {
   spec = {
     'https://github.com/uga-rosa/cmp-dictionary',
-    after = { 'world.zachariahs.nvim-plugins.cmp' },
+    after = { 'world.zachariahs.personal_nvim_config.plugins.cmp' },
     config = function()
       require("cmp_dictionary").setup({
         dic = {

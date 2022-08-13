@@ -1,7 +1,7 @@
 return {
   spec = {
     'https://github.com/neovim/nvim-lspconfig',
-    after = {'world.zachariahs.nvim-plugins.cmp-lsp'},
+    after = {'world.zachariahs.personal_nvim_config.plugins.cmp-lsp'},
     config = function()
       -- Setup formatting on save.
       vim.cmd([[

@@ -1,7 +1,7 @@
 return {
   spec = {
     'https://github.com/hrsh7th/nvim-cmp',
-    after = {'world.zachariahs.nvim-plugins.LuaSnip'},
+    after = {'world.zachariahs.personal_nvim_config.plugins.LuaSnip'},
     config = function()
       local cmp = require'cmp'
 
@@ -24,30 +24,30 @@ return {
           ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         }),
         sources = cmp.config.sources({
-          require('world.zachariahs.nvim-plugins.cmp-lsp').cmp_source,
-          require('world.zachariahs.nvim-plugins.cmp_luasnip').cmp_source,
-          require('world.zachariahs.nvim-plugins.cmp-treesitter').cmp_source,
-          require('world.zachariahs.nvim-plugins.cmp-path').cmp_source,
-          require('world.zachariahs.nvim-plugins.cmp-buffer').cmp_source,
-          require('world.zachariahs.nvim-plugins.cmp-dictionary').cmp_source,
+          require('world.zachariahs.personal_nvim_config.plugins.cmp-lsp').cmp_source,
+          require('world.zachariahs.personal_nvim_config.plugins.cmp_luasnip').cmp_source,
+          require('world.zachariahs.personal_nvim_config.plugins.cmp-treesitter').cmp_source,
+          require('world.zachariahs.personal_nvim_config.plugins.cmp-path').cmp_source,
+          require('world.zachariahs.personal_nvim_config.plugins.cmp-buffer').cmp_source,
+          require('world.zachariahs.personal_nvim_config.plugins.cmp-dictionary').cmp_source,
         }),
         sorting = { comparators = {
-          require('world.zachariahs.nvim-plugins.cmp-buffer').cmp_comparator,
+          require('world.zachariahs.personal_nvim_config.plugins.cmp-buffer').cmp_comparator,
         }}
       })
 
       cmp.setup.cmdline(':', {
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources({
-          require('world.zachariahs.nvim-plugins.cmp-cmdline').cmp_source,
+          require('world.zachariahs.personal_nvim_config.plugins.cmp-cmdline').cmp_source,
         })
       })
 
       cmp.setup.cmdline('/', {
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources({
-          require('world.zachariahs.nvim-plugins.cmp-lsp-document-symbol').cmp_source,
-          require('world.zachariahs.nvim-plugins.cmp-buffer').cmp_source,
+          require('world.zachariahs.personal_nvim_config.plugins.cmp-lsp-document-symbol').cmp_source,
+          require('world.zachariahs.personal_nvim_config.plugins.cmp-buffer').cmp_source,
         })
       })
 

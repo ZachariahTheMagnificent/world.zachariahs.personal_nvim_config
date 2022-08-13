@@ -2,8 +2,8 @@ return {
   spec = {
     'https://github.com/windwp/nvim-autopairs',
     after = {
-      'world.zachariahs.nvim-plugins.cmp',
-      'world.zachariahs.nvim-plugins.treesitter',
+      'world.zachariahs.personal_nvim_config.plugins.cmp',
+      'world.zachariahs.personal_nvim_config.plugins.treesitter',
     },
     config = function()
       local cmp_autopairs = require('nvim-autopairs.completion.cmp')

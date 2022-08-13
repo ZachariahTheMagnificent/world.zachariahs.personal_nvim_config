@@ -1,2 +1,2 @@
-require 'world.zachariahs.nvim-options'
-require 'world.zachariahs.nvim-plugins'
+require 'world.zachariahs.personal_nvim_config.options'
+require 'world.zachariahs.personal_nvim_config.plugins'
