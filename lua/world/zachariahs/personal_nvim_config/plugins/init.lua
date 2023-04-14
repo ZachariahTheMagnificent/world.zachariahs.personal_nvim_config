@@ -1,12 +1,21 @@
 local current_file_name = debug.getinfo(1,'S').source:sub(2)
-local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
-local packer_bootstrapped = false
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  vim.fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-  vim.cmd [[packadd packer.nvim]]
-  packer_bootstrapped = true
+
+local function bootstrap_packer()
+  if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+    vim.fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.fn.packadd([[packer.nvim]])
+    return true
+  end
+
+  return false
 end
+
+
+packer_bootstrapped = bootstrap_packer()
+
+
 -- Automatically reloads plugins every time this file is changed.
 vim.cmd(string.format([[
   augroup packer_user_config
@@ -14,7 +23,9 @@ vim.cmd(string.format([[
     autocmd BufWritePost %s source %s | PackerSync
   augroup end
 ]], current_file_name, current_file_name))
-local loaded_spec = function(name)
+
+
+local function loaded_spec(name)
   local spec = require(name).spec
   spec.as = name
 
@@ -23,11 +34,11 @@ end
 
 
 require('packer').startup({
-  function()
+  function(use)
     -- Packer can manage itself.
-    use 'https://github.com/wbthomason/packer.nvim'
+    use('https://github.com/wbthomason/packer.nvim')
 
-    
+
     use {
       loaded_spec('world.zachariahs.personal_nvim_config.plugins.autopairs'),
       loaded_spec('world.zachariahs.personal_nvim_config.plugins.bufferline'),

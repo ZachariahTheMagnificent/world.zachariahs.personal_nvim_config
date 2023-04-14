@@ -13,9 +13,13 @@ return {
 
 
       -- Setup lspconfig.
-      local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local lsp = require('lspconfig')
 
-      require('lspconfig').clangd.setup {
+      lsp.clangd.setup {
+        capabilities = capabilities
+      }
+      lsp.tsserver.setup{
         capabilities = capabilities
       }
     end
