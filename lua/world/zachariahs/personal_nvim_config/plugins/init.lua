@@ -13,7 +13,7 @@ local function bootstrap_packer()
 end
 
 
-packer_bootstrapped = bootstrap_packer()
+local packer_bootstrapped = bootstrap_packer()
 
 
 -- Automatically reloads plugins every time this file is changed.
